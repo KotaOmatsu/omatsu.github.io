@@ -1,0 +1,226 @@
+@charset "utf-8";
+/* by https://webtan.tech/ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2f2f4b;
+  font-family: "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN",
+    "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+    "MS PGothic", serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+p + p {
+  margin-top: 15px;
+}
+
+.header {
+  background-color: #b0d4f1; /* 明るめの青 */
+  padding: 80px 0;
+}
+
+.header h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  margin-bottom: 50px;
+}
+
+.logo {
+  text-align: center;
+}
+
+section {
+  padding: 60px 0;
+}
+
+.inner {
+  width: 1000px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 90px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #b0d4f1; /* 青系の見出し */
+}
+
+.title-w {
+  font-size: 90px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.skill {
+  background-color: #2b5d8c; /* 濃い青 */
+  color: #fff;
+}
+
+.skill__wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.skill__box {
+  background-color: #4a88c2; /* やや明るめの青 */
+  padding: 30px;
+  border-radius: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* .skill__box ホバー時の色変更 */
+.skill__box:hover {
+  background-color: #376da3; /* 濃い青へ変化 */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.skill__box-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.gallery_box_wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.gallery_box {
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px solid #d0e4f9; /* 青っぽい薄い色 */
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* .gallery_box ホバー時の色変更 */
+.gallery_box:hover {
+  background-color: #e3f2fd; /* 淡い青っぽい背景に */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.graduation {
+  background-color: #b0d4f1; /* 明るめの青 */
+}
+
+.graduation_btn a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #4a88c2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.graduation_btn a:hover {
+  background-color: #357ab8;
+}
+
+.copyright {
+  background-color: #2b3f66; /* ネイビー */
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.footer_logo {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer_logo img {
+  width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    display: block;
+  }
+
+  .header_info,
+  .header_img {
+    width: 100%;
+  }
+
+  .header_info_inner {
+    padding: 30px;
+  }
+
+  .skills_wrap,
+  .gallery_box_wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills_box {
+    margin-inline: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .works_gallery {
+    display: block;
+  }
+
+  .gallery_box {
+    width: 100%;
+  }
+
+  .title,
+  .title-w {
+    font-size: 48px;
+  }
+}
+
+.nav {
+  text-align: center;
+  /* margin-bottom: 30px; */
+}
+
+.nav ul {
+  display: inline-flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: rgba(131, 123, 242, 0.2);
+}

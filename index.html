@@ -1,428 +1,163 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <!-- by https://webtan.tech/ -->
+
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <title>Omatsuのポートフォリオ</title>
-    <style>
-      :root {
-        --bg: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-        --text: #0a1f44;
-        --accent: #3f80ff;
-        --font-main: "Helvetica Neue", sans-serif;
-        --gray: #5a6b8a;
-        --border: #ccd9ee;
-        --sidebar-bg: rgba(255, 255, 255, 0.8);
-        --fun-color: #ff3cac;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: var(--font-main);
-        background: var(--bg);
-        color: var(--text);
-        display: flex;
-        min-height: 100vh;
-        overflow-x: hidden;
-        animation: bg-move 30s ease infinite alternate;
-      }
-
-      .sidebar {
-        width: 260px;
-        background: var(--sidebar-bg);
-        border-right: 1px solid var(--border);
-        padding: 2rem 1.5rem;
-        position: fixed;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        animation: slide-in-left 2s ease-out forwards;
-        backdrop-filter: blur(8px);
-      }
-
-      .sidebar h1 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        animation: bounce-in 2s ease forwards;
-      }
-
-      .sidebar nav a {
-        display: block;
-        color: var(--text);
-        text-decoration: none;
-        margin: 1rem 0;
-        transition: 0.5s;
-        position: relative;
-        animation: floaty 3s ease-in-out infinite;
-      }
-
-      .sidebar nav a:hover {
-        color: var(--fun-color);
-        transform: rotate(-5deg) scale(1.2);
-      }
-
-      .footer {
-        font-size: 0.9rem;
-        color: var(--gray);
-        animation: floaty 5s infinite ease-in-out;
-      }
-
-      .content {
-        margin-left: 260px;
-        padding: 4rem 3rem;
-        flex: 1;
-      }
-
-      section {
-        margin-bottom: 6rem;
-        max-width: 800px;
-        opacity: 0;
-        transform: translateY(80px) rotate(-3deg);
-        transition: all 1s ease;
-        scroll-margin-top: 80px;
-      }
-
-      section.visible {
-        opacity: 1;
-        transform: translateY(0) rotate(0);
-        animation: fade-zoom-in 2s ease-out;
-      }
-
-      h2 {
-        font-size: 2.4rem;
-        margin-bottom: 1rem;
-        border-left: 6px dotted var(--fun-color);
-        padding-left: 0.5rem;
-        animation: wiggle 2s ease-in-out infinite;
-      }
-
-      p {
-        line-height: 1.9;
-        margin-bottom: 1.5rem;
-      }
-
-      .card {
-        border: 3px double var(--accent);
-        padding: 1.5rem;
-        border-radius: 30px;
-        background: white;
-        transform: rotate(2deg);
-        transition: all 0.6s ease;
-        animation: pulse 3s infinite;
-      }
-
-      .card:hover {
-        transform: rotate(-2deg) scale(1.1);
-        background: #f0f8ff;
-      }
-
-      .timeline {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      .timeline-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1.2rem;
-        transform: rotate(-2deg);
-        animation: swing-in 2s ease-in-out;
-      }
-
-      .timeline-dot {
-        width: 18px;
-        height: 18px;
-        background: radial-gradient(circle, var(--fun-color), var(--accent));
-        border-radius: 50%;
-        animation: bounce 1s infinite;
-        flex-shrink: 0;
-        box-shadow: 0 0 10px var(--fun-color);
-      }
-
-      .timeline-content h3 {
-        font-size: 1.4rem;
-        font-weight: bold;
-        color: var(--fun-color);
-      }
-
-      .timeline-content span {
-        font-size: 1rem;
-        color: var(--gray);
-        display: block;
-        margin-bottom: 0.5rem;
-      }
-
-      .timeline-content p {
-        margin: 0;
-        line-height: 1.8;
-      }
-
-      .emoji-comment {
-        margin: 1rem 0;
-        font-size: 1.5rem;
-        animation: dance 3s infinite ease-in-out;
-      }
-
-      p.animated-name {
-        animation: rotateColor 3s ease-in-out infinite;
-      }
-      p.animated-age {
-        animation: blink 1.5s infinite;
-      }
-      p.animated-bo {
-        animation: floaty 4s ease-in-out infinite;
-      }
-      p.animated-intro {
-        animation: bounce-in 2s ease-out;
-      }
-      p.animated-experience {
-        animation: slide-in-left 2s ease-out;
-      }
-      p.animated-favorite {
-        animation: wiggle 2.5s ease-in-out infinite;
-      }
-
-      @keyframes rotateColor {
-        0% {
-          color: #ff3cac;
-          transform: rotate(0);
-        }
-        50% {
-          color: #3f80ff;
-          transform: rotate(3deg);
-        }
-        100% {
-          color: #ff3cac;
-          transform: rotate(0);
-        }
-      }
-
-      @keyframes blink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.3;
-        }
-      }
-
-      @keyframes bg-move {
-        0% {
-          background-position: 0% 50%;
-        }
-        100% {
-          background-position: 100% 50%;
-        }
-      }
-
-      @keyframes slide-in-left {
-        from {
-          transform: translateX(-100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes bounce-in {
-        0% {
-          opacity: 0;
-          transform: scale(0.5);
-        }
-        70% {
-          transform: scale(1.3);
-        }
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      @keyframes fade-zoom-in {
-        0% {
-          transform: scale(0.8);
-          opacity: 0;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-      }
-
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
-      }
-
-      @keyframes floaty {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      @keyframes wiggle {
-        0%,
-        100% {
-          transform: rotate(0);
-        }
-        25% {
-          transform: rotate(3deg);
-        }
-        75% {
-          transform: rotate(-3deg);
-        }
-      }
-
-      @keyframes swing-in {
-        0% {
-          transform: rotate(-30deg);
-          opacity: 0;
-        }
-        100% {
-          transform: rotate(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes dance {
-        0%,
-        100% {
-          transform: translateX(0);
-        }
-        25% {
-          transform: translateX(-5px);
-        }
-        75% {
-          transform: translateX(5px);
-        }
-      }
-    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
+    <title>Omatsu ポートフォリオ</title>
+    <meta name="description" content="Omatsu ポートフォリオ" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
+
   <body>
-    <aside class="sidebar">
-      <h1>Omatsu</h1>
-      <nav id="nav-menu">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="footer">&copy; 2025 Uso</div>
-    </aside>
-    <main class="content">
-      <section id="about">
-        <h2>About</h2>
-        <p class="animated-name"><strong>Name：</strong>Omatsu</p>
-        <p class="animated-age"><strong>Age：</strong>22 years old</p>
-        <p class="animated-bo"><strong>BO：</strong>Aichi</p>
-        <p class="animated-intro">
-          こんにちは。Omatsuと申します。現在は学生として自分史上最も自堕落な日々を送っています。
+    <header class="header bg_gradient">
+      <nav class="nav">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#works">Activities</a></li>
+            <li><a href="#graduation">Graduation Work</a></li>
+        </ul>
+    </nav>
+      <p class="logo">
+        <img
+          src="./images/logo.png"
+          alt="ロゴ"
+          width="450"
+        />
+      </p>
+    </header>
+    <section id="about">
+      <div class="inner">
+        <h2 class="title">About</h2>
+        <p>こんにちは、Omatsuです。</p>
+        <p>
+          私は現在、Webデザイナーを目指して勉強中の初心者です。もともと絵を描くことや手芸が好きで、デザインやクリエイティブな活動に興味を持っていました。そんな中で、インターネットの世界で自分のアイデアを形にできるWebデザインに魅力を感じ、この道を選びました。
         </p>
-        <p class="animated-experience">
-          これといった趣味がないので、今年度は趣味を見つけるために、興味のないことにも積極的にチャレンジしていきたいです。
+        <p>
+          普段はカフェ巡りが趣味で、新しい場所でお気に入りのコーヒーを見つけるのが楽しみです。また、旅行も大好きで、訪れた場所の風景や文化からインスピレーションを得ることも多いです。
         </p>
-        <p class="animated-favorite">
-        　XXXXXXXXXXXXXXXXXXXXXXXXXXX
+        <p>
+          Webデザインの勉強を始めてからは、HTMLやCSSの基礎を学びながら、デザインツールの使い方も習得中です。ユーザーが使いやすく、見た目も美しいサイトを作ることを目標に、日々努力しています。
         </p>
-      </section>
-      <section id="work">
-        <h2>Career</h2>
-        <div class="emoji-comment">💥テキストはダミーです</div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>〇〇株式会社</h3>
-              <span>2023年4月 - 現在</span>
-              <p>XXXXXXXXXXXXXX</p>
-            </div>
+        <p>
+          私の強みは、粘り強く物事に取り組む姿勢と、細かいところまで丁寧に作り込むことです。これからもたくさんのことを学び、自分のスキルを磨いていきたいと思っています。
+        </p>
+        <p>どうぞよろしくお願いいたします。</p>
+      </div>
+    </section>
+    <section class="skill" id="skills">
+      <div class="inner">
+        <h2 class="title-w">Skills</h2>
+        <div class="skill__wrap">
+          <div class="skill__box">
+            <h3 class="skill__box-title">Illustrator</h3>
+            <p class="skill__box-description">
+              名刺やバナーの作成、イラストマップ、ロゴの作成が得意です。デザインの細部までこだわり、クライアントの要望に応える作品を提供します。
+            </p>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>△△株式会社</h3>
-              <span>2021年4月 - 2023年3月</span>
-              <p>XXXXXXXXXXXX</p>
-            </div>
+          <div class="skill__box">
+            <h3 class="skill__box-title">Photoshop</h3>
+            <p class="skill__box-description">
+              バナー制作やデザインカンプの制作を学び、基本的な操作はもちろん、ショートカットキーも使いこなせます。効率的に作業を進めるためのテクニックを日々研鑽しています。
+            </p>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>□□インターン</h3>
-              <span>2020年8月 - 2021年3月</span>
-              <p>学生時代に社内Slackに絵文字Botを仕込んで伝説化。</p>
-            </div>
+          <div class="skill__box">
+            <h3 class="skill__box-title">HTML・CSS</h3>
+            <p class="skill__box-description">
+              教科書や講師からの課題、グループ制作、自主制作を通じて、合計6つのWebサイトをコーディングしました。レスポンシブデザインのコツもつかんでおり、モバイルフレンドリーなサイトを作成することができます。
+            </p>
           </div>
         </div>
-      </section>
-      <section id="skills">
-        <h2>Skills</h2>
-        <div class="card">🎨 XXXXXXXXX</div>
-        <div class="card">🤖 XXXXXXXXX</div>
-        <div class="card">💌 XXXXXXXXX</div>
-        <div class="card">🔥 XXXXXXXXX</div>
-      </section>
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:test@example.com">test@example.com</a></p>
+      </div>
+    </section>
+
+    <section class="WORKS" id="works">
+      <div class="inner">
+        <h2 class="title">Activities</h2>
+        <div class="gallery_box_wrap">
+          <div class="gallery_box">
+            <p class="works_img">
+              <img src="https://placehold.jp/300x250.png?text=bnr" alt="説明" />
+            </p>
+            <p>クリスマスバナー</p>
+            <p>用途: ペットショップのECサイトに掲載するクリスマスバナー。</p>
+            <p>
+              デザインの意図:
+              クリスマスの雰囲気を前面に出しつつ、ペットとの暖かい時間をイメージさせるデザイン。サンタ帽子をかぶった犬や猫のイラストを使用して、購入意欲を刺激。
+            </p>
+            <div class="works_info">
+              <p>
+                制作・修正時間 2時間<br />
+                調査・企画 3時間
+              </p>
+            </div>
+          </div>
+          <div class="gallery_box">
+            <p class="works_img">
+              <img
+                src="https://i0.wp.com/ideamarkets.info/wp-content/uploads/2025/04/%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B01-2-scaled.png?resize=1024%2C896&ssl=1"
+                alt="説明"
+              />
+            </p>
+
+            <p>夏のセールバナー</p>
+
+            <p>
+              用途: ファッションECサイトの夏のセール告知用バナー。<br />
+              デザインの意図:
+              夏の爽やかさとセールのワクワク感を組み合わせたデザイン。ビビッドな色合いとトロピカルな要素を取り入れて、夏のショッピングへの誘導を強化。
+            </p>
+            <div class="works_info">
+              <p>
+                制作・修正時間 2時間<br />
+                調査・企画 3時間
+              </p>
+            </div>
+          </div>
+          <div class="gallery_box">
+            <p class="works_img">
+                <img
+                  src="./images/PC.png"
+                  alt="説明"
+                />
+              </p>
+  
+            <p class="works_img">
+              <img src="https://placehold.jp/728x90.png?text=bnr" alt="説明" />
+            </p>
+            <p>
+              お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明
+            </p>
+            <div class="works_info">
+              <p>
+                制作・修正時間 2時間<br />
+                調査・企画 3時間
+              </p>
+            </div>
+          </div>
+          
+      </div>
+    </section>
+
+    <section class="graduation" id="graduation">
+      <div class="inner">
+        <h2 class="title-w">Graduation work</h2>
         <p>
-          GitHub:
-          <a href="https://github.com/KotaOmatsu" target="_blank"
-            >github.com/KotaOmatsu</a
-          >
+          何作ろうかな
         </p>
-      </section>
-    </main>
-    <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            } else {
-              entry.target.classList.remove("visible");
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-      document.querySelectorAll("section").forEach((section) => {
-        observer.observe(section);
-      });
-    </script>
+
+        <div class="graduation_btn"><a href="">進捗 (githubのリポジトリURLを載せる予定)</a></div>
+      </div>
+    </section>
+    <footer> 
+      <div class="copyright">
+        <small>&copy; Omatsu </small>
+      </div>
+    </footer>
   </body>
 </html>
