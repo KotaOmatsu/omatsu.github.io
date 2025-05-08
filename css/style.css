@@ -99,9 +99,20 @@ section {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.skill-icon {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
 .skill__box-title {
   font-size: 24px;
   margin-bottom: 15px;
+}
+
+.works_img {
+  margin-bottom: 10px;
 }
 
 .gallery_box_wrap {
@@ -129,6 +140,9 @@ section {
   background-color: #b0d4f1; /* 明るめの青 */
 }
 
+.graduation_btn {
+  text-align: center;
+}
 .graduation_btn a {
   display: inline-block;
   padding: 12px 24px;

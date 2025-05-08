@@ -11,24 +11,21 @@
     <meta name="description" content="Omatsu ポートフォリオ" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./images/favicon.png" type="image/png" />
   </head>
 
   <body>
     <header class="header bg_gradient">
       <nav class="nav">
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#works">Activities</a></li>
-            <li><a href="#graduation">Graduation Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#works">Activities</a></li>
+          <li><a href="#graduation">Graduation Work</a></li>
         </ul>
-    </nav>
+      </nav>
       <p class="logo">
-        <img
-          src="./images/logo.png"
-          alt="ロゴ"
-          width="450"
-        />
+        <img src="./images/logo.png" alt="ロゴ" width="450" />
       </p>
     </header>
     <section id="about">
@@ -36,18 +33,10 @@
         <h2 class="title">About</h2>
         <p>こんにちは、Omatsuです。</p>
         <p>
-          私は現在、Webデザイナーを目指して勉強中の初心者です。もともと絵を描くことや手芸が好きで、デザインやクリエイティブな活動に興味を持っていました。そんな中で、インターネットの世界で自分のアイデアを形にできるWebデザインに魅力を感じ、この道を選びました。
+          私は現在、非常に自堕落な生活を送っています。
+          今年は趣味を見つけるために、興味のないことにも積極的にチャレンジしていこうと思います。
         </p>
-        <p>
-          普段はカフェ巡りが趣味で、新しい場所でお気に入りのコーヒーを見つけるのが楽しみです。また、旅行も大好きで、訪れた場所の風景や文化からインスピレーションを得ることも多いです。
-        </p>
-        <p>
-          Webデザインの勉強を始めてからは、HTMLやCSSの基礎を学びながら、デザインツールの使い方も習得中です。ユーザーが使いやすく、見た目も美しいサイトを作ることを目標に、日々努力しています。
-        </p>
-        <p>
-          私の強みは、粘り強く物事に取り組む姿勢と、細かいところまで丁寧に作り込むことです。これからもたくさんのことを学び、自分のスキルを磨いていきたいと思っています。
-        </p>
-        <p>どうぞよろしくお願いいたします。</p>
+        <p>暇なのでゲームや面接の練習など、できるだけなんでも行きます。</p>
       </div>
     </section>
     <section class="skill" id="skills">
@@ -55,21 +44,59 @@
         <h2 class="title-w">Skills</h2>
         <div class="skill__wrap">
           <div class="skill__box">
-            <h3 class="skill__box-title">Illustrator</h3>
+            <a
+              href="https://developer.mozilla.org/ja/docs/Web/JavaScript"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="JavaScript Icon"
+                class="skill-icon"
+            /></a>
+
+            <h3 class="skill__box-title">Javascript</h3>
             <p class="skill__box-description">
-              名刺やバナーの作成、イラストマップ、ロゴの作成が得意です。デザインの細部までこだわり、クライアントの要望に応える作品を提供します。
+              Vue3やらCLIをつかって簡単なWebアプリケーションを作れます。
+              ReactもTypescriptもちょっとだけ書けます。
+              ただちゃんと触っていたのが3,4年前とかなので、思い出す必要があります。
             </p>
           </div>
           <div class="skill__box">
-            <h3 class="skill__box-title">Photoshop</h3>
+            <a
+              href="https://docs.python.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                alt="Python Icon"
+                class="skill-icon"
+              />
+            </a>
+            <h3 class="skill__box-title">Python</h3>
+
             <p class="skill__box-description">
-              バナー制作やデザインカンプの制作を学び、基本的な操作はもちろん、ショートカットキーも使いこなせます。効率的に作業を進めるためのテクニックを日々研鑽しています。
+              スクレピングとか簡単なAPIだったら作れると思います。
+              生成AIを使う前提で。
             </p>
           </div>
+
           <div class="skill__box">
-            <h3 class="skill__box-title">HTML・CSS</h3>
+            <a
+              href="https://https://soliditylang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="https://img.icons8.com/?size=512&id=at2DODSyQznb&format=png"
+                alt="Solidity Icon"
+                class="skill-icon"
+            /></a>
+
+            <h3 class="skill__box-title">Solidity</h3>
             <p class="skill__box-description">
-              教科書や講師からの課題、グループ制作、自主制作を通じて、合計6つのWebサイトをコーディングしました。レスポンシブデザインのコツもつかんでおり、モバイルフレンドリーなサイトを作成することができます。
+              ブロックチェーン関連の言語です。
+              まじでちょっとだけ、ほんのちょっとだけ触れます。
+              CryptoZombiesを履修したくらいです。
             </p>
           </div>
         </div>
@@ -81,82 +108,86 @@
         <h2 class="title">Activities</h2>
         <div class="gallery_box_wrap">
           <div class="gallery_box">
-            <p class="works_img">
-              <img src="https://placehold.jp/300x250.png?text=bnr" alt="説明" />
-            </p>
-            <p>クリスマスバナー</p>
-            <p>用途: ペットショップのECサイトに掲載するクリスマスバナー。</p>
-            <p>
-              デザインの意図:
-              クリスマスの雰囲気を前面に出しつつ、ペットとの暖かい時間をイメージさせるデザイン。サンタ帽子をかぶった犬や猫のイラストを使用して、購入意欲を刺激。
-            </p>
-            <div class="works_info">
-              <p>
-                制作・修正時間 2時間<br />
-                調査・企画 3時間
-              </p>
-            </div>
-          </div>
-          <div class="gallery_box">
-            <p class="works_img">
-              <img
-                src="https://i0.wp.com/ideamarkets.info/wp-content/uploads/2025/04/%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B01-2-scaled.png?resize=1024%2C896&ssl=1"
-                alt="説明"
-              />
-            </p>
-
-            <p>夏のセールバナー</p>
-
-            <p>
-              用途: ファッションECサイトの夏のセール告知用バナー。<br />
-              デザインの意図:
-              夏の爽やかさとセールのワクワク感を組み合わせたデザイン。ビビッドな色合いとトロピカルな要素を取り入れて、夏のショッピングへの誘導を強化。
-            </p>
-            <div class="works_info">
-              <p>
-                制作・修正時間 2時間<br />
-                調査・企画 3時間
-              </p>
-            </div>
-          </div>
-          <div class="gallery_box">
-            <p class="works_img">
+            <a
+              href="https://ideamarkets.info/archives/2911"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><p class="works_img">
                 <img
-                  src="./images/PC.png"
+                  src="https://i0.wp.com/ideamarkets.info/wp-content/uploads/2025/04/%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B01-2-scaled.png?resize=1024%2C896&ssl=1"
                   alt="説明"
-                />
+                /></p
+            ></a>
+
+            <p>4/27 スカイダイビング</p>
+
+            <p>
+              めちゃくちゃ良かったです<br />
+              違う場所でも飛びたいなと思いました。
+            </p>
+            <p>今のところ、2025年ベストバイですね。</p>
+            <div class="works_info">
+              <p>
+                飛んだ場所：<a href="https://www.iseshimaskydivingclub.com/"
+                  >伊勢志摩スカイダイビングクラブ</a
+                ><br />
               </p>
-  
+            </div>
+          </div>
+          <div class="gallery_box">
+            <p class="works_img">
+              <img src="./images/PC.png" alt="説明" />
+            </p>
+
             <p class="works_img">
               <img src="https://placehold.jp/728x90.png?text=bnr" alt="説明" />
             </p>
+            <p>5/2 PC購入</p>
             <p>
-              お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明お題の説明
+              最近ゲーミングPCを買って、LoL始めました。
+              supメインでやっています。
             </p>
+            <p></p>
             <div class="works_info">
               <p>
-                制作・修正時間 2時間<br />
-                調査・企画 3時間
+                PC性能<br />
+                CPU：Core i7-14700F<br />
+                グラボ：GeForce RTX 4070 SUPER
               </p>
             </div>
           </div>
-          
+          <div class="gallery_box">
+            <p>Coming Soon...</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="graduation" id="graduation">
       <div class="inner">
         <h2 class="title-w">Graduation work</h2>
+        <p>なんか言語化のトレーニングができるサイトとか？</p>
+        <p>セルフコントロール能力を高められるものとか？</p>
         <p>
-          何作ろうかな
+          僕は自分がほしいと思わないものや既存のサービスでできるものは作るモチベーションがわかないタイプなので、テーマを決定するのが難しいです
+        </p>
+        <p>
+          何を作るにしろ、生成AIをつかって1行もコードを書かないことを目標に取り組む予定です
         </p>
 
-        <div class="graduation_btn"><a href="">進捗 (githubのリポジトリURLを載せる予定)</a></div>
+        <div class="graduation_btn">
+          <a
+            href="https://github.com/KotaOmatsu"
+            target="_blank"
+            rel="noopener noreferrer"
+            >進捗 (githubのリポジトリURLを載せる予定)</a
+          >
+        </div>
       </div>
     </section>
-    <footer> 
+    <footer>
       <div class="copyright">
-        <small>&copy; Omatsu </small>
+        <small>&copy;Omatsu </small>
       </div>
     </footer>
   </body>
